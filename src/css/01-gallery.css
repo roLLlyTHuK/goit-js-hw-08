@@ -12,6 +12,8 @@
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
+  /* !Не подобаются крапки біля картинок */
+  list-style: none;
 }
 
 .gallery__item {
