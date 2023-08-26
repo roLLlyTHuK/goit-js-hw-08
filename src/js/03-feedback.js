@@ -3,7 +3,7 @@ import { throttle } from 'lodash';
 const form = document.querySelector('.feedback-form');
 const emailInput = form.querySelector('[name="email"]');
 const messageInput = form.querySelector('[name="message"]');
-
+//! зберігаемо у сховище кожні піві секунди
 const saveFormState = throttle(() => {
   const formState = {
     email: emailInput.value,
@@ -15,7 +15,7 @@ const saveFormState = throttle(() => {
 
 emailInput.addEventListener('input', saveFormState);
 messageInput.addEventListener('input', saveFormState);
-
+//! отримуємо зі сховища
 const savedState = localStorage.getItem('feedback-form-state');
 
 if (savedState) {
@@ -23,7 +23,7 @@ if (savedState) {
   emailInput.value = parsedState.email;
   messageInput.value = parsedState.message;
 }
-
+//! очищення сховища та полів
 form.addEventListener('submit', event => {
   event.preventDefault();
 
