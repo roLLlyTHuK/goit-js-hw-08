@@ -6,6 +6,7 @@ const player = new Vimeo('vimeo-player');
 player.on('timeupdate', throttle(() => {
     player.getCurrentTime().then(time => {
         // localStorage.setItem('videoplayer-current-time', time);
+        //todo зручний формат відображення часу у сховищі 
         const minutes = Math.floor(time / 60);
         const seconds = Math.floor(time % 60);
         const normalTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
