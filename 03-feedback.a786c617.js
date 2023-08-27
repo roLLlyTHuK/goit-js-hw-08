@@ -1,6 +1,0 @@
-!function(){var e="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{},a={},t={},r=e.parcelRequired7c6;null==r&&((r=function(e){if(e in a)return a[e].exports;if(e in t){var r=t[e];delete t[e];var n={id:e,exports:{}};return a[e]=n,r.call(n.exports,n,n.exports),n.exports}var o=new Error("Cannot find module '"+e+"'");throw o.code="MODULE_NOT_FOUND",o}).register=function(e,a){t[e]=a},e.parcelRequired7c6=r);var n=r("1WSnx"),o=document.querySelector(".feedback-form"),l=o.querySelector('[name="email"]'),i=o.querySelector('[name="message"]'),u=(0,n.throttle)((function(){var e={email:l.value,message:i.value};localStorage.setItem("feedback-form-state",JSON.stringify(e))}),500);l.addEventListener("input",u),i.addEventListener("input",u);
-//! отримуємо зі сховища
-var f=localStorage.getItem("feedback-form-state");if(f){var s=JSON.parse(f);l.value=s.email,i.value=s.message}
-//! очищення сховища та полів
-o.addEventListener("submit",(function(e){e.preventDefault();var a={email:l.value,message:i.value};console.log(a),localStorage.removeItem("feedback-form-state"),l.value="",i.value=""}))}();
-//# sourceMappingURL=03-feedback.a786c617.js.map
