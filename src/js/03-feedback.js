@@ -3,6 +3,13 @@ import { throttle } from 'lodash';
 const form = document.querySelector('.feedback-form');
 const emailInput = form.querySelector('[name="email"]');
 const messageInput = form.querySelector('[name="message"]');
+const sendButton = form.querySelector('button[type="submit"]');
+sendButton.disabled = true;
+//! заборона відправки пустих полів
+form.addEventListener("input", function() {
+  sendButton.disabled = emailInput.value === '' || messageInput.value === '';
+});
+
 //! зберігаемо у сховище кожні піві секунди
 const saveFormState = throttle(() => {
   const formState = {
@@ -37,4 +44,5 @@ form.addEventListener('submit', event => {
   localStorage.removeItem('feedback-form-state');
   emailInput.value = '';
   messageInput.value = '';
+  sendButton.disabled = true;
 });
